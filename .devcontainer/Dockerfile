@@ -55,6 +55,9 @@ RUN if [ -n "${GITHUB_TOKEN}" ]; then export GITHUB_TOKEN=${GITHUB_TOKEN}; fi  \
 # Set default toolchain
 RUN rustup default nightly
 
+# VSCode extension helper tools
+RUN rustup component add clippy
+RUN rustup component add rustfmt
 
 # Activate ESP environment
 RUN echo "source /home/${CONTAINER_USER}/export-esp.sh" >> ~/.bashrc
